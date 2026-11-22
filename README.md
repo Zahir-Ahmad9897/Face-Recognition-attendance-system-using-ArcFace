@@ -6,11 +6,14 @@
 ![Flask](https://img.shields.io/badge/Flask-2.3+-green.svg)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)
+![Status](https://img.shields.io/badge/Status-Prototype-orange.svg)
 
-**Production-ready AI-powered attendance system with real-time face recognition, automated reporting, web dashboard, and Proteus hardware simulation.**
+**Prototype AI-powered attendance system with real-time face recognition, automated reporting, web dashboard, and Proteus hardware simulation.**
 
-[Features](#features) • [Demo](#demo) • [Installation](#installation) • [Usage](#usage) • [Proteus Integration](#proteus-integration) • [Documentation](#documentation)
+> [!WARNING]
+> **Anti-Spoofing Notice**: Presentation Attack Detection (Anti-Spoofing) is **not implemented** in this prototype repository. The system is vulnerable to presentation attacks (e.g., 2D photos, screen replays). For anti-spoofing, refer to the production-grade architecture in `irid.ai`.
+
+[Features](#features) • [Demo](#demo) • [Installation](#installation) • [Usage](#usage) • [Proteus Integration](#proteus-integration)
 
 </div>
 
@@ -30,7 +33,7 @@ Real-time face detection → ArcFace recognition → Automated attendance markin
 ## Features
 
 ### **Core Capabilities**
-- **Real-time Face Recognition** - ArcFace model with 92%+ accuracy
+- **Real-time Face Recognition** - ArcFace feature extraction (accuracy pending formal re-measurement)
 - **Multi-face Detection** - Process multiple faces simultaneously  
 - **Automated Attendance** - Mark attendance instantly with timestamp
 - **Proteus Hardware Simulation** - Send recognized faces to virtual Arduino/LCD display
@@ -82,14 +85,13 @@ Real-time face detection → ArcFace recognition → Automated attendance markin
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/Zahir-Ahmad9897/Face-attendance-system-using-ArcFace.git
-cd Face-attendance-system-using-ArcFace
+git clone https://github.com/Zahir-Ahmad9897/Face-Recognition-attendance-system-using-ArcFace.git
+cd Face-Recognition-attendance-system-using-ArcFace
 ```
 
 ### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
-pip install -r web_requirements.txt
 ```
 
 ### 3. Run the System
@@ -121,11 +123,7 @@ Open your browser and navigate to:
 http://localhost:8000
 ```
 
-**Default Credentials:**
-- **Admin**: `admin` / `admin123`
-- **Teacher**: `teacher` / `teacher123`
-
-**IMPORTANT:** Change default passwords immediately!
+Configure your administrative account during initial setup or set credentials via environment configuration before deploying.
 
 ### Configure Email Reports
 
@@ -278,8 +276,6 @@ proteus/
 **Problem: LCD shows "Ready!" but no names**
 - Solution: Double-click Serial_Communication_Module in Proteus, set Physical Port to COM4
 
-Full Proteus integration guide: `docs/PROTEUS_COMPLETE_GUIDE.md`
-
 ---
 
 ## Project Structure
@@ -290,13 +286,7 @@ Face-Attendance-System/
 ├── README.md                   # Project documentation
 ├── LICENSE                     # MIT License
 ├── requirements.txt            # Python dependencies
-├── web_requirements.txt        # Web-specific dependencies
 ├── .gitignore                  # Git ignore rules
-│
-├── docs/                       # Documentation
-│   ├── PROJECT_STRUCTURE.md  # Detailed architecture
-│   ├── SRS_DOCUMENT.md        # Requirements specification
-│   └── PROTEUS_COMPLETE_GUIDE.md # Hardware simulation guide
 │
 ├── src/                        # Source Code
 │   ├── app.py                # Flask web server & API
@@ -417,16 +407,6 @@ curl http://localhost:8000/api/students/all
 
 ---
 
-## Documentation
-
-| Document | Description |
-|----------|-------------|
-| [PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md) | Complete architecture overview |
-| [SRS_DOCUMENT.md](docs/SRS_DOCUMENT.md) | Software requirements specification |
-| [PROTEUS_COMPLETE_GUIDE.md](docs/PROTEUS_COMPLETE_GUIDE.md) | Hardware simulation guide |
-
----
-
 ## Troubleshooting
 
 <details>
@@ -515,7 +495,7 @@ The Proteus simulation can be converted to real hardware:
 - [ ] SMS notifications
 - [ ] Advanced analytics dashboard
 - [ ] Cloud synchronization
-- [ ] Anti-spoofing detection
+- [ ] Anti-spoofing detection (Not implemented)
 
 ---
 
@@ -542,7 +522,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Zahir Ahmad**
 
 - GitHub: [@Zahir-Ahmad9897](https://github.com/Zahir-Ahmad9897)
-- Project Link: [Face-attendance-system-using-ArcFace](https://github.com/Zahir-Ahmad9897/Face-attendance-system-using-ArcFace)
+- Project Link: [Face-Recognition-attendance-system-using-ArcFace](https://github.com/Zahir-Ahmad9897/Face-Recognition-attendance-system-using-ArcFace)
 
 ---
 
@@ -557,13 +537,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## Stats
+## System Specifications
 
-- **Model Accuracy**: 99.2% on test dataset
-- **Processing Speed**: 30-60 FPS (real-time)
-- **Response Time**: <100ms per face
-- **Capacity**: Supports 1000+ students
+- **Biometric Pipeline**: MTCNN face detection + ArcFace embedding extraction
 - **Serial Communication**: 9600 baud, 10-second intervals
+- **Hardware Integration**: Proteus virtual Arduino simulation with LCD, buzzer, and servo
 
 ---
 
@@ -573,6 +551,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Made with care for automated attendance tracking and hardware integration**
 
-[Report Bug](https://github.com/Zahir-Ahmad9897/Face-attendance-system-using-ArcFace/issues) · [Request Feature](https://github.com/Zahir-Ahmad9897/Face-attendance-system-using-ArcFace/issues)
+[Report Bug](https://github.com/Zahir-Ahmad9897/Face-Recognition-attendance-system-using-ArcFace/issues) · [Request Feature](https://github.com/Zahir-Ahmad9897/Face-Recognition-attendance-system-using-ArcFace/issues)
 
 </div>
